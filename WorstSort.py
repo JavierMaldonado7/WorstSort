@@ -2,6 +2,8 @@
 #Javier Maldonado Rivera
 #3/4/2021
 import random
+import time
+
 def SortedVerify(array):
     l = 1
     for n in array:
@@ -18,11 +20,16 @@ def RandomizeBB(array):
 
 
 def WorstSort(array):
+    initTime = time.time()
+    currentTime = time.time()
     while(SortedVerify(array) is False):
        array =  RandomizeBB(array)
-       print(array)
+       reportTime = currentTime - initTime
+       currentTime = time.time()
+
     else:
+       print(reportTime)
        return array
 
-array = [9,6,3]
+array = [9,8,5,8]
 print(WorstSort(array))
