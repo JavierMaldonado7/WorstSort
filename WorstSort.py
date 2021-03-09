@@ -20,16 +20,20 @@ def RandomizeBB(array):
 
 
 def WorstSort(array):
-    initTime = time.time()
     currentTime = time.time()
+    shuffles = 0
     while(SortedVerify(array) is False):
        array =  RandomizeBB(array)
-       reportTime = currentTime - initTime
+
        currentTime = time.time()
+       shuffles = shuffles + 1
+       print(array)
 
     else:
-       print(reportTime)
+       reportTime = currentTime
+       print("Time taken to solve: "+(str((reportTime/777600000)))+" seconds.")
+       print("Amount of shuffles done to solve: "+ str(shuffles))
        return array
 
-array = [9,8,5,8]
+array = [9,8,5,7,3]
 print(WorstSort(array))
